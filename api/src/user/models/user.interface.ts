@@ -1,3 +1,4 @@
+
 export interface User { 
 
     id?: number;
@@ -6,5 +7,10 @@ export interface User {
     career?: string;
     email?: string;
     password?: string;
+    role?: UserRole;
+}
 
+export enum UserRole {
+    ADMIN = 'admin',
+    USER = 'user'
 }

@@ -128,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\" : \"demo@gmail.com\",\r\n    \"password\": \"demo\"\r\n\r\n}",
+					"raw": "{\r\n    \"email\" : \"ad-aof@sinw.com\",\r\n    \"password\": \"ad-aof\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -145,6 +145,46 @@
 					"path": [
 						"user",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiYWRtaW4iLCJ1c2VybmFtZSI6ImFkbWluIiwiY2FyZWVyIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQHNpbncuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNjE1MjMwNDg1LCJleHAiOjE2MTUzMzA0ODV9.5apXVyshMhZhuU_lkk6tRl_HwOLB4ovgA4pP6SbpFvg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\" : \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/14/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"14",
+						"role"
 					]
 				}
 			},

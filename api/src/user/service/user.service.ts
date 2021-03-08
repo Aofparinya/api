@@ -4,7 +4,7 @@ import { from, Observable, throwError } from 'rxjs';
 import { AuthService } from 'src/auth/services/auth.service';
 import { Repository } from 'typeorm';
 import { UserEntity } from '../models/user.entity';
-import { User } from '../models/user.interface';
+import { User, UserRole } from '../models/user.interface';
 import { switchMap, map , catchError} from 'rxjs/operators';
 import { match } from 'node:assert';
 
@@ -26,6 +26,7 @@ export class UserService {
                 newUser.career = user.career;
                 newUser.email = user.email;
                 newUser.password = passwordHash;
+                newUser.role = UserRole.USER;
 
                 return from(this.userRepository.save(newUser)).pipe(
                     map((user: User) => {
@@ -65,8 +66,13 @@ export class UserService {
     updateOne(id: number, user: User): Observable<any> {
         delete user.email;
         delete user.password;
+        delete user.role;
 
         return from(this.userRepository.update(id, user));
+    }
+
+    updateRoleOfUser(id: number, user: User): Observable<any> {
+        return from(this.userRepository.update(id, user))
     }
 
     login(user: User): Observable<string> {
