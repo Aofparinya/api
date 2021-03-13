@@ -189,6 +189,88 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJuYW1lIjoiYWRtaW4iLCJ1c2VybmFtZSI6ImFkbWluMSIsImNhcmVlciI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBzaW53LmNvbSIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE2MTU2NDA3NTcsImV4cCI6MTYxNTc0MDc1N30.FvwGDXdnsmd2Idd_1IyN8Tg3qWVLfWPFWU04XahYCyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test update\",\r\n    \"job\" : \"kozyae\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all job updated",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/job",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get job by UserID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/job?userId=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

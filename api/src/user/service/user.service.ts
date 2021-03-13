@@ -41,7 +41,7 @@ export class UserService {
     }
 
     findOne(id: number): Observable<User> {
-        return from(this.userRepository.findOne({id})).pipe(
+        return from(this.userRepository.findOne({id}, {relations: ['jobEntries']})).pipe(
             map((user: User) => {
                 const {password, ...result} = user;
                 return result;
@@ -51,7 +51,7 @@ export class UserService {
     }
 
     findAll(): Observable<User[]> {
-        return from(this.userRepository.find()).pipe(
+        return from(this.userRepository.find({relations: ['jobEntries']})).pipe(
             map((users: User[]) => {
                 users.forEach(function (v) {delete v.password});
                 return users;

@@ -1,7 +1,8 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
+
+import { JobEntryEntity } from "src/job/models/job-entry.entity";
+import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserRole } from "./user.interface";
-
-
 
 @Entity()
 export class UserEntity {
@@ -26,6 +27,9 @@ export class UserEntity {
 
     @Column({type: 'enum' , enum: UserRole, default: UserRole.USER})
     role: UserRole;
+
+    @OneToMany(type => JobEntryEntity, jobEntryEntity => jobEntryEntity.author)
+    jobEntries: JobEntryEntity;
 
     @BeforeInsert()
     emailToLowerCase() {

@@ -1,6 +1,6 @@
+import { JobEntry } from "src/job/models/job-entry.interface";
 
-export interface User { 
-
+export interface User {
     id?: number;
     name?: string;
     username?: string;
@@ -8,9 +8,15 @@ export interface User {
     email?: string;
     password?: string;
     role?: UserRole;
+    jobEntries?: JobEntry;
+   
 }
 
 export enum UserRole {
     ADMIN = 'admin',
     USER = 'user'
 }
+
+
+
+  
